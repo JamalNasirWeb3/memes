@@ -23,7 +23,7 @@ const MemeEditor = () => {
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/meme-templates");
+        const response = await axios.get("https://memegen-9rae.onrender.com/meme-templates");
         setMemeTemplates(response.data);
       } catch (error) {
         console.error("Failed to fetch meme templates:", error);
@@ -46,7 +46,7 @@ const MemeEditor = () => {
 
   const generateCaption = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/generate-caption", { text: userInput });
+      const response = await axios.post("https://memegen-9rae.onrender.com/generate-caption", { text: userInput });
       console.log("API Response:", response.data); // Debugging line
       setSuggestedCaptions([response.data.caption]);
       setEditedCaption(response.data.caption);
